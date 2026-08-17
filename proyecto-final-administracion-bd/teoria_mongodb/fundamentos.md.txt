@@ -1,0 +1,93 @@
+# Fundamentos de MongoDB
+
+¿Qué es una base de datos no relacional y qué es MongoDB?
+
+mongo db es un sistema de gestión de bases de datos (DBMS) no relacional de código abierto que no usa tablas en lugar de eso usa documentos 
+flexibles y filas para procesar y almacenar los datos.
+
+¿Qué son una colección, un documento y un campo?
+
+Colección: Es el equivalente a una tabla en una base de datos relacional, pero con más flexibilidad.
+
+Documento: Es como una fila en una tabla de una base de datos relacional, los documentos son la unidad básica de datos en MongoDB.
+
+Campo: Es cada uno de los atributos que forman un documento.
+
+Mientras que PostgreSQL almacena cada dato en columnas definidas, MongoDB permite que cada documento tenga campos adicionales cuando sea necesario.
+
+Diferencias principales entre una tabla relacional y una colección de documentos
+
+PostgreSQL (base de datos relacional) organiza la información en tablas compuestas por filas y columnas. Cada registro corresponde a una fila y la estructura de la base de datos debe seguir un esquema previamente definido. Además, utiliza llaves primarias, llaves foráneas y consultas JOIN para relacionar la información entre distintas tablas, por lo que es una excelente opción cuando existen relaciones complejas y se requiere una alta integridad de los datos.
+
+MongoDB (base de datos no relacional) almacena la información en colecciones formadas por documentos con un formato similar a JSON. Cada documento puede tener una estructura diferente, lo que hace que su esquema sea flexible y fácil de adaptar a cambios. En lugar de depender de múltiples tablas y JOIN, normalmente guarda los datos relacionados dentro del mismo documento, siendo ideal para información variable o semiestructurada.
+
+Dos ventajas y dos limitaciones de MongoDB
+
+Ventajas
+
+Flexibilidad del esquema: Permite agregar nuevos campos sin modificar toda la estructura de la base de datos.
+
+Buen rendimiento con documentos: Es eficiente para consultar y almacenar información que pertenece a un mismo objeto, evitando múltiples uniones entre tablas.
+
+Limitaciones
+
+Relaciones menos robustas: No utiliza llaves foráneas como PostgreSQL, por lo que la integridad de los datos depende más de la aplicación.
+
+Consultas complejas: Cuando existen muchas relaciones entre entidades, PostgreSQL suele ofrecer un manejo más sencillo mediante JOIN y restricciones de integridad.
+
+¿Cuándo conviene utilizar PostgreSQL y cuándo MongoDB?
+
+PostgreSQL es la mejor opción cuando la información está altamente relacionada y requiere consistencia, por ejemplo:
+
+Bibliotecas
+
+Bancos
+
+Hospitales
+
+Sistemas escolares
+
+Inventarios
+
+En estos casos es importante garantizar que un préstamo siempre corresponda a un usuario y a un libro existentes.
+
+MongoDB conviene cuando los datos cambian constantemente o tienen estructuras diferentes, por ejemplo:
+
+Bitácoras de actividad
+
+Comentarios de usuarios
+
+Historial de navegación
+
+Eventos generados por una aplicación
+
+Su flexibilidad permite almacenar información sin modificar continuamente el diseño de la base de datos.
+
+Aplicación de MongoDB al caso de la biblioteca
+
+En el proyecto de la biblioteca, PostgreSQL almacena correctamente las tres tablas principales: usuarios, libros y préstamos. Sin embargo, MongoDB podría utilizarse para guardar el historial de actividades de cada libro.
+
+Por ejemplo, cada vez que un libro es prestado, devuelto, reservado o consultado, podría registrarse un evento dentro de un mismo documento. Esta información puede variar en cantidad y no necesita estar dividida en varias tablas, por lo que resulta adecuada para una base de datos orientada a documentos.
+
+Ejemplo de un documento JSON
+
+{
+  "libro": {
+    "id": 3,
+    "titulo": "1984",
+    "autor": "George Orwell"
+  },
+  "historial": [
+    {
+      "usuario": "Juan Pérez",
+      "accion": "Prestado",
+      "fecha": "2026-08-01"
+    },
+    {
+      "usuario": "Juan Pérez",
+      "accion": "Devuelto",
+      "fecha": "2026-08-08"
+    }
+  ],
+  "disponible": true
+}

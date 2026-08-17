@@ -1,0 +1,50 @@
+-- ==========================================
+-- PROYECTO FINAL - BIBLIOTECA
+-- 01_creacion.sql
+-- ==========================================
+
+CREATE DATABASE biblioteca_db;
+
+-- Conectarse a biblioteca_db antes de ejecutar lo siguiente
+
+CREATE TABLE usuarios (
+    id_usuario SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    correo VARCHAR(100) UNIQUE NOT NULL,
+    telefono VARCHAR(15)
+);
+
+CREATE TABLE libros (
+    id_libro SERIAL PRIMARY KEY,
+    titulo VARCHAR(120) NOT NULL,
+    autor VARCHAR(80) NOT NULL,
+    categoria VARCHAR(50),
+    anio INTEGER,
+    disponible BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE prestamos (
+    id_prestamo SERIAL PRIMARY KEY,
+    id_usuario INTEGER NOT NULL,
+    id_libro INTEGER NOT NULL,
+    fecha_prestamo DATE NOT NULL,
+    fecha_devolucion DATE,
+    CONSTRAINT fk_usuario
+        FOREIGN KEY(id_usuario)
+        REFERENCES usuarios(id_usuario),
+    CONSTRAINT fk_libro
+        FOREIGN KEY(id_libro)
+        REFERENCES libros(id_libro),
+    CONSTRAINT chk_fechas
+        CHECK (
+            fecha_devolucion IS NULL
+            OR fecha_devolucion >= fecha_prestamo
+        )
+);
+
+CREATE INDEX idx_libro_titulo
+ON libros(titulo);
+
+CREATE INDEX idx_prestamo_usuario
+ON prestamos(id_usuario);
