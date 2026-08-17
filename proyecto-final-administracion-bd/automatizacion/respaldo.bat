@@ -1,0 +1,8 @@
+@echo off
+
+set FECHA=%date:~-4%%date:~3,2%%date:~0,2%
+
+pg_dump -U postgres -d proyecto_bibliotecadb -F c -f respaldo_%FECHA%.backup
+
+echo Respaldo completado
+pause
