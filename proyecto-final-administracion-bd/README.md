@@ -54,8 +54,7 @@ Todos los scripts se ejecutan desde el **SQL Editor de DBeaver**, conectado al s
 |---|---|
 | Respaldo y restauración | Se genera un respaldo con `pg_dump` y se restaura en una base distinta (`proyecto_bibliotecadb_restaurada`) con `pg_restore`. Ver [`respaldo_restauracion/procedimiento.md`](respaldo_restauracion/procedimiento.md). |
 | Importación y exportación | Se exporta la tabla `libros` a `libros.csv` y se importa un archivo CSV nuevo con libros adicionales usando DBeaver. Ver [`importacion_exportacion/procedimiento.md`](importacion_exportacion/procedimiento.md). |
-| Automatización | El script [`automatizacion/respaldo.bat`](automatizacion/respaldo.bat) ejecuta un respaldo de la base de datos con `pg_dump`, generando un archivo con la fecha del día en el nombre para no sobrescribir respaldos anteriores. |
-
+| Automatización |  El script [`automatizacion/reporte_automatizado.sql`](automatizacion/reporte_automatizado.sql) genera automáticamente un reporte de préstamos (con estado calculado) y lo guarda con fecha en la tabla `reporte_prestamos`, simulando una tarea programada. |
 ## 7. Pruebas de usuarios, monitoreo y calidad
 
 **Usuarios y permisos** (`sql/03_usuarios_permisos.sql`): se crean dos roles con privilegio mínimo:
