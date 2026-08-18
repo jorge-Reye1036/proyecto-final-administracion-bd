@@ -4,16 +4,15 @@
 
 ## 1. Integrantes
 
-- Jorge
+- Jorge Antonio Reyes Reyes 
 
 ## 2. Descripción del caso y objetivo
 
-El proyecto consiste en el diseño y administración de una base de datos PostgreSQL para una biblioteca. La
-base de datos permite registrar a los usuarios que solicitan libros en préstamo, el catálogo de libros
-disponibles y el historial de préstamos realizados, incluyendo sus fechas de entrega y devolución.
+El proyecto consiste en el diseño  de una base de datos PostgreSQL para una biblioteca. La
+base de datos usa tres tablas relacionadas las cuales son usuarios prestamos y libros. tambien permite registrar a los usuarios que solicitan libros en préstamo, el catálogo de libros
+disponibles y el historial de préstamos realizados, incluyendo datos como son sus fechas de entrega y devolución.
 
-El objetivo es aplicar y documentar las principales tareas de administración de una base de datos relacional:
-creación del esquema, carga de datos, control de usuarios y permisos, respaldo y restauración, importación y
+El objetivo del proyecto es aplicar los conocimientos vistos en la unidad de aministracion de base de datos en un estudio real en el cual se podran carga de datos, control de usuarios y permisos, respaldo y restauración, importación y
 exportación de información, automatización de tareas, monitoreo y revisión de calidad de los datos.
 
 ## 3. Modelo relacional
@@ -89,13 +88,11 @@ Ver [`teoria_mongodb/fundamentos.md`](teoria_mongodb/fundamentos.md).
 
 El desarrollo de este proyecto permitió practicar de forma integral las tareas más comunes en la
 administración de una base de datos PostgreSQL: desde el diseño del esquema relacional y la carga de datos,
-hasta la gestión de usuarios con privilegio mínimo, el respaldo y restauración, la automatización de tareas
-y el monitoreo del rendimiento y la calidad de los datos. Comparar PostgreSQL con MongoDB también ayudó a
-entender en qué escenarios conviene un modelo relacional estricto y en cuáles resulta más conveniente un
-modelo de documentos flexible, como el historial de actividad de los libros en este mismo caso de estudio.
+hasta la gestión de usuarios con diferentes privilegios, el respaldo y restauración, la automatización de tareas
+y el monitoreo del rendimiento y la calidad de los datos. Comparar PostgreSQL con MongoDB fue una tarea superficila ya que en esta unnidad no se vio mongodb sin embargo ya se contaba con conocimientos previos de esta base de datos por lo tanto al comparar ambas  se puedo entender en qué escenarios conviene un modelo relacional  y en cuáles resulta más conveniente un modelo de documentos flexible.
 
 
-## 10. Fuentes consultadas
+## Fuentes consultadas
 
 IBM. (2026, 1 junio). *¿Qué es MongoDB?* https://www.ibm.com/mx-es/think/topics/mongodb
 
@@ -108,4 +105,4 @@ https://medium.com/@saranipeiris17/mongodb-collections-documents-62ebf2c7d202
 https://www.enterprisedb.com/blog/relational-vs-document-database
 
 
-Se utilizó Claude (Anthropic) como apoyo al igual que como una erramienta de correcion de errores como son  de sintaxis en los scripts SQL, busqueda de informacion 
+en la elaboracion del proyecto se utlilizaron herramientas IA como son Claude y chat gpt como apoyo al igual que como una erramienta de correcion de errores como son  de sintaxis y para revision en los scripts SQL.
